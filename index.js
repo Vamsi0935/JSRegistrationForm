@@ -7,12 +7,7 @@ const password = document.getElementById("password");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const isValid = validate();
-  if (isValid) {
-    alert("Form Validation is failed!!");
-  } else {
-    alert("Form submitted successfully!!");
-  }
+  validate();
 });
 
 const setError = (element, message) => {
