@@ -7,7 +7,12 @@ const password = document.getElementById("password");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  validate();
+  const isValid = validate();
+  if (isValid) {
+    alert("Form Validation is failed!!");
+  } else {
+    alert("Form submitted successfully!!");
+  }
 });
 
 const setError = (element, message) => {
@@ -27,7 +32,7 @@ const setSuccess = (element) => {
 };
 
 const isValidFullname = (fullname) => {
-  const RegEx = /^[A-Za-z]$/;
+  const RegEx = /^[A-Za-z\s]+$/;
   return RegEx.test(fullname);
 };
 
@@ -36,15 +41,15 @@ const isValidEmail = (email) => {
   return RegEx.test(email);
 };
 const isValidNumber = (mobile) => {
-  const RegEx = /^[6789]\d{10}$/;
+  const RegEx = /^[789]\d{9}$/;
   return RegEx.test(mobile);
 };
 const isValidUsername = (username) => {
-  const RegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+  const RegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{10,}$/;
   return RegEx.test(username);
 };
 const isValidPassword = (password) => {
-  const RegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+  const RegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{10,}$/;
   return RegEx.test(password);
 };
 
